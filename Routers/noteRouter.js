@@ -31,7 +31,7 @@ appRouter.post("/", postValidator, authValidator, async (req, res) => {
 appRouter.put("/:id", putValidator, authValidator, async (req, res) => {
   const id = req.params.id;
   const note = await Notes.findById(id);
-  if (note.author !== req.user._id) {
+  if (note.author.toString() !== req.user._id) {
     res.send({ error: "Unauthorized" });
   } else {
     note.content = req.body.content;
@@ -48,7 +48,7 @@ appRouter.delete("/:id", authValidator, async (req, res) => {
   const id = req.params.id;
   const note = await Notes.findById(id);
   if(!note){res.send({error:"No note exists with this id"});return ;}
-  if (note.author !== req.user._id) {
+  if (note.author.toString() !== req.user._id) {
     res.send({ error: "Unauthorized" });
   }
   try {
