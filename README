@@ -8,3 +8,36 @@ How to run the application ?
  3. start your application by command - npm start 
  4. Make sure you have enough permissions to run nodemon package in the pc, 
     if not run the command - node server.js
+
+
+Endpoints - 
+    1. /api/notes - get - gives all the notes of all users
+                    body format - {}
+                    response format - {notes:[]}
+
+    2. /api/notes/:id - get - gives note of that id
+                    body format - {}
+                    response format - {note:{}}
+
+    3. /api/notes - post - saves the note in database
+                    body format - {title:"first note",content:"content here"}
+                    response format - {message : "Successfully posted"}
+
+    4. /api/notes/:id - put - updates the content of a note
+                    body format - {content:"updated content"}
+                    response format - {message : "Successfully updated"}
+
+    5. /api/notes/:id - delete - deletes the note
+                    body format - {}
+                    response format - {message : "Successfully deleted"}
+
+    6. /api/auth/signup - post - creates a new user
+                    body format - {username:"username",password:"password"}
+                    response format - {message:"Successfully created"}
+
+    7. /api/auth/sign - post - gives a token to track sign in.
+                    body format - {username:"username",password:"password"}
+                    response format - {message : "Succesfully signed in"}
+
+
+   Tested with postman.

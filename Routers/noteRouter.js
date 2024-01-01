@@ -6,15 +6,20 @@ const {
   postValidator,
   putValidator,
 } = require("../Validators/customValidators");
-appRouter.get("/", async (req, res) => {
-  const notes = await Notes.find({});
+appRouter.get("/",authValidator, async (req, res) => {
+  const notes = await Notes.find({author:req.user._id});
   res.send({ notes });
 });
 
-appRouter.get("/:id", async (req, res) => {
+appRouter.get("/:id", authValidator,async (req, res) => {
   const id = req.params.id;
   const note = await Notes.findById(id);
+  if(note.author.toString()!=req.user._id){
+    res.send({error:"Unauthorized"});
+  }
+  else {
   res.send({ note });
+  }
 });
 
 appRouter.post("/", postValidator, authValidator, async (req, res) => {

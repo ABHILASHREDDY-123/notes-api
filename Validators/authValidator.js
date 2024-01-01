@@ -11,6 +11,9 @@ const authValidator = (req, res, next) => {
          res.send({error:"Invalid token"})
       }
     }
+    else {
+        res.send({error:"Please Signup"});
+    }
   };
  
 
