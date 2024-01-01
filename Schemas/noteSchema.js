@@ -12,6 +12,10 @@ const noteSchema = new mongoose.Schema({
         required:[true,'content is required'],
         minlength:[1,'Content must have atleast 1 character'],
         maxLength:[500,'Content must have atmost 500 characters']
+    },
+    author : {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'users' ,
     }
 },
 {
