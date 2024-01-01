@@ -1,0 +1,10 @@
+Requirement - Node js
+
+Built and Tested on node js version 20.10.0
+
+How to run the application ? 
+ 1. Clone the repository to local system.
+ 2. Run command npm install in terminal in the root directory of project.
+ 3. start your application by command - npm start 
+ 4. Make sure you have enough permissions to run nodemon package in the pc, 
+    if not run the command - node server.js
